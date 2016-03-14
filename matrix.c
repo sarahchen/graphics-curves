@@ -272,6 +272,23 @@ struct matrix * make_rotZ(double theta) {
   to generate the coefiecients for a bezier curve
   ====================*/
 struct matrix * make_bezier() {
+  struct matrix *b = new_matrix(4, 4);
+  ident(b);
+
+  b->m[0][0] = -1;
+  b->m[0][1] = 3;
+  b->m[0][2] = -3;
+  b->m[0][3] = 1;
+  b->m[1][0] = 3;
+  b->m[1][1] = -6;
+  b->m[1][2] = 3;
+  b->m[2][0] = -3;
+  b->m[2][2] = 3;
+  b->m[2][3] = 0;
+  b->m[3][0] = 1;
+  b->m[3][3] = 0;
+
+  return b;
 }
 
 /*======== struct matrix * make_hermite()) ==========
@@ -282,6 +299,21 @@ struct matrix * make_bezier() {
   the coefiecients for a hermite curve
   ====================*/
 struct matrix * make_hermite() {
+  struct matrix *h = new_matrix(4, 4);
+  ident(h);
+
+  h->m[0][0] = 2;
+  h->m[0][1] = -2;
+  h->m[0][2] = 1;
+  h->m[0][3] = 1;
+  h->m[1][0] = -3;
+  h->m[1][1] = 3;
+  h->m[1][2] = -2;
+  h->m[1][3] = 1;
+  h->m[3][0] = 1;
+  h->m[3][3] = 0;
+
+  return h;
 }
 
 /*======== struct matrix * generate_curve_coefs() ==========
